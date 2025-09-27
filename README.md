@@ -56,13 +56,7 @@ The repository includes the following key components:
    Usage: ./match <db_file> <snippet_audio_file>
    ```
 
-### Usage
 
-To use Echo, provide an audio file as input. The application will process the audio, generate fingerprints, and attempt to match them against a database of known fingerprints.
-
-```bash
-./echo input_audio.wav
-```
 
 ## Contributing
 
