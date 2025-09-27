@@ -154,7 +154,6 @@ void add_song_to_db(const char *wavFile, const char *songName, const char *dbFil
     size_t numWindows = 0;
     Spectrogram(samples_d, numFrames, sampleRate, &spec, &numWindows);
     fprintf(stdout, "Spectrogram result: windows=%zu spec_ptr=%p\n", numWindows, (void*)spec);
-        SpectrogramToImage(spec, numWindows, FREQ_BIN_SIZE, "spec.png");
     if (!spec || numWindows == 0) {
         fprintf(stderr, "Spectrogram failed or produced zero windows\n");
         free(samples_d);
