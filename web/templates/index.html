@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Shazam</title>
+</head>
+<body>
+<h1>Mini Shazam Web</h1>
+
+<h2>Add Song to Database</h2>
+<form method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="action" value="add">
+    Song file (.wav): <input type="file" name="file" required>
+    <button type="submit">Add Song</button>
+</form>
+
+<h2>Match a Snippet</h2>
+<form method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="action" value="match">
+    Snippet file (.wav): <input type="file" name="file" required>
+    <button type="submit">Identify</button>
+</form>
+
+{% if message %}
+<h3>Output:</h3>
+<pre>{{ message }}</pre>
+{% endif %}
+
+{% if results %}
+<h3>Matches:</h3>
+<ul>
+{% for r in results %}
+    <li>{{ r }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<h2>Record Snippet</h2>
+<button onclick="startRecording()">Start Recording</button>
+<button onclick="stopRecording()">Stop & Upload</button>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
